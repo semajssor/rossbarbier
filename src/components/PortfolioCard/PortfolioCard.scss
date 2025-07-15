@@ -1,0 +1,34 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.portfolio-card {
+   display: flex;
+   flex-direction: column;
+   border: 0.5px solid variables.$secondary-color;
+   border-radius: 8px;
+   overflow: hidden;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   margin-bottom: 2rem;
+   background: variables.$light-bg;
+   transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+
+   @media (min-width: 768px) {
+      flex-direction: row;
+   }
+
+   .image-wrapper {
+      flex: 1;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         display: block;
+      }
+   }
+      .dark & {
+         background: variables.$dark-bg;
+         border: 0.5px solid variables.$primary-color;
+         box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+      }
+}

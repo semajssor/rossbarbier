@@ -1,0 +1,23 @@
+@use './variables';
+@use './mixins';
+
+body {
+  font-family: variables.$font-family;
+  background: variables.$light-bg;
+  color: variables.$text-light;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+  letter-spacing: 1px;
+}
+
+body.dark {
+  background: variables.$dark-bg;
+  color: variables.$text-dark;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

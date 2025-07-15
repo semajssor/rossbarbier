@@ -1,0 +1,54 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.hero {
+   position: relative;
+   overflow: hidden;
+   padding: 8rem 1rem;
+   text-align: center;
+   background: variables.$light-bg url("/portrait_removebg.png") no-repeat center;
+   background-size: auto;
+   background-position: center;
+   color: variables.$text-light;
+   transition: background 0.3s ease, color 0.3s ease;
+
+   &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: variables.$light-bg;
+      opacity: 0.4;
+      z-index: 0;
+   }
+
+   .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+
+      h2 {
+         font-size: 2.5rem;
+         margin-bottom: 3rem;
+      }
+
+      p {
+         font-size: 1.25rem;
+         max-width: 500px;
+         margin: 0 auto 3rem auto;
+      }
+   }
+
+   // Dark mode
+   body.dark & {
+      background: variables.$dark-bg url("/portrait_removebg.png") no-repeat center;
+      background-size: auto;
+      background-position: center;
+      color: variables.$text-dark;
+
+      &::before {
+         background: black; 
+         opacity: 0.4;
+      }
+   }
+}

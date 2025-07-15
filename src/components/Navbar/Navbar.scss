@@ -1,0 +1,166 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.navbar {
+   background: variables.$light-bg;
+   color: variables.$text-light;
+   padding: 0.5rem 1.5rem;
+   border-bottom: 1px solid variables.$secondary-color;
+   transition: background 0.3s ease, color 0.3s ease;
+
+   &.dark {
+      background: variables.$dark-bg;
+      color: variables.$text-dark;
+   }
+
+   .navbar-container {
+      @include mixins.flex-center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+   }
+
+   .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+
+      img {
+         height: 60px;
+         width: auto;
+      }
+   }
+
+   .nav-links {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background: variables.$light-bg;
+      color: variables.$text-light;
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 2rem;
+      z-index: 1000;
+      border: 1px solid variables.$secondary-color;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+      &.open {
+         display: flex;
+      }
+
+      a {
+         color: inherit;
+         text-decoration: none;
+         font-weight: 500;
+         transition: color 0.3s ease, border 0.3s ease;
+         border: 1px solid transparent;
+         padding: 0.5rem 1rem;
+         border-radius: 7px;
+
+         &:hover {
+            border: 1px solid variables.$secondary-color;
+            border-radius: 7px;
+         }
+      }
+   }
+
+   &.dark .nav-links {
+      background: variables.$dark-bg;
+      color: variables.$text-dark;
+      border: 1px solid variables.$primary-color;
+
+      a:hover {
+         border: 1px solid variables.$primary-color;
+         border-radius: 7px;
+      }
+   }
+
+      .nav-icons {
+         @include mixins.flex-center;
+         gap: 1rem;
+   
+         .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: inherit;
+            transition: transform 0.4s ease, color 0.3s ease;
+   
+            &:hover {
+               color: variables.$accent-icon-color;
+               transform: scale(1.2);
+            }
+         }
+   
+         .burger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1100;
+            color: inherit; 
+            transition: none; 
+   
+            span {
+               display: block;
+               height: 2px;
+               width: 100%;
+               background: currentColor;
+               transition: all 0.3s ease;
+            }
+
+            &.open {
+               span:nth-child(1) {
+                  transform: rotate(45deg) translate(5px, 5px);
+               }
+
+               span:nth-child(2) {
+                  opacity: 0;
+               }
+
+               span:nth-child(3) {
+                  transform: rotate(-45deg) translate(5px, -5px);
+               }
+            }
+   
+            &:hover {
+               color: inherit; 
+            }
+   
+            &:hover span {
+               background: currentColor; 
+            }
+         }
+      }
+
+      @media (min-width: 768px) {
+         .nav-links {
+            position: static;
+            flex-direction: row;
+            gap: 2rem;
+            display: flex !important;
+            background: none;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+         }
+            &.dark .nav-links {
+               border: none;
+            }
+   
+         .nav-icons {
+            .burger {
+               display: none;
+            }
+         }
+      }
+}

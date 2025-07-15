@@ -1,0 +1,41 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.btn {
+   display: inline-block;
+   padding: 0.5rem 1rem;
+   font-family: variables.$font-family;
+   font-size: 1rem;
+   font-weight: 500;
+   text-decoration: none;
+   border: 1px solid transparent;
+   border-radius: 7px;
+   cursor: pointer;
+   transition: background 0.3s ease, color 0.3s ease;
+
+   // Light mode base
+   background: variables.$secondary-color;
+   color: variables.$text-dark;
+   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+
+   &:hover {
+      background: variables.$primary-color;
+      color: variables.$text-light;
+      border: 1px solid variables.$secondary-color;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+   }
+
+   // Dark mode override
+   body.dark & {
+      background: variables.$primary-color;
+      color: variables.$text-light;
+      box-shadow: 0 2px 7px rgba(255, 255, 255, 0.3);
+
+      &:hover {
+         background: variables.$secondary-color;
+         color: variables.$text-dark;
+         box-shadow: 0 3px 8px rgba(255, 255, 255, 0.25);
+         border: 1px solid variables.$primary-color;
+      }
+   }
+}

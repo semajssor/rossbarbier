@@ -1,0 +1,32 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.portfolio {
+   padding: 4rem 1rem;
+   text-align: center;
+   background: variables.$light-bg;
+   color: variables.$text-light;
+
+   body.dark & {
+      background: variables.$dark-bg;
+      color: variables.$text-dark;
+   }
+
+   .portfolio-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+   }
+
+   .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+
+      @media (min-width: 768px) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+   }
+}
