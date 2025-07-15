@@ -14,23 +14,6 @@
       color: variables.$text-dark;
    }
 
-   .social-icons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
-      font-size: 1.5rem;
-
-      a {
-         color: inherit;
-         transition: color 0.3s ease, transform 0.3s ease;
-
-         &:hover {
-            transform: scale(1.2);
-         }
-      }
-   }
-
    .footer-text {
       margin-top: 1rem;
       font-size: 0.6rem;

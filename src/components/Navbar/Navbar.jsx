@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import Button from "../Button/Button.jsx";
 import "./Navbar.scss";
-
+import SocialIcons from "../SocialIcons/SocialIcons.jsx";
 
 
 const Navbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
 						Contact
 					</a>
 				</nav>
-
+				<SocialIcons isDarkMode={isDarkMode} />
 				<div className="nav-icons">
 					<Button href={"https://rossthebarber.setmore.com/"}>Réserver</Button>
 					<button onClick={toggleDarkMode} className="icon-btn" aria-label="Toggle dark mode">
