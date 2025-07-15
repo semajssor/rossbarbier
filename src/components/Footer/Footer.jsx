@@ -7,7 +7,7 @@ const Footer = () => {
 		<footer className="footer">
 			<SocialIcons />
 			<p className="footer-text">
-				&copy; {new Date().getFullYear()} Ross the Barber. Tous droits réservés.
+				&copy; {new Date().getFullYear()} Ross Barbier. Tous droits réservés.
 			</p>
 		</footer>
 	);
