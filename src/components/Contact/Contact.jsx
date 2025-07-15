@@ -6,6 +6,7 @@ const Contact = () => {
 			<div className="contact__container">
 				<div className="contact__info">
 					<h2>Heures d'ouverture</h2>
+					<br />
 					<ul>
 						<li>Lundi : 12h - 21h</li>
 						<li>Mardi : 12h - 21h</li>
@@ -20,6 +21,8 @@ const Contact = () => {
 				<div className="contact__details">
 					<h2>Adresse</h2>
 					<p>
+						Salon: Zone M
+						<br />
 						308, boul. De La Marine
 						<br />
 						Varennes, Québec, J3X 2E6
