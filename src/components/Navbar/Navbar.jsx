@@ -3,6 +3,7 @@ import Button from "../Button/Button.jsx";
 import "./Navbar.scss";
 import SocialIcons from "../SocialIcons/SocialIcons.jsx";
 import ThemeToggle from "../ThemeToggle/ThemeToggle.jsx";
+import BurgerMenu from "../BurgerMenu/BurgerMenu.jsx";
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -11,13 +12,11 @@ const Navbar = () => {
 	const toggleMenu = () => setIsOpen(!isOpen);
 	const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
-	// Detect system theme on mount
 	useEffect(() => {
 		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 		setIsDarkMode(prefersDark);
 	}, []);
 
-	// Apply theme to <body>
 	useEffect(() => {
 		document.body.classList.toggle("dark", isDarkMode);
 	}, [isDarkMode]);
@@ -49,14 +48,7 @@ const Navbar = () => {
 				<div className="nav-icons">
 					<Button href={"https://rossthebarber.setmore.com/"}>Réserver</Button>
 					<ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-					<button
-						onClick={toggleMenu}
-						className={`icon-btn burger ${isOpen ? "open" : ""}`}
-						aria-label="Toggle menu">
-						<span></span>
-						<span></span>
-						<span></span>
-					</button>
+					<BurgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
 				</div>
 			</div>
 		</header>

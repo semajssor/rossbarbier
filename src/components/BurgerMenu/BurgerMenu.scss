@@ -1,0 +1,46 @@
+@use "../../styles/variables";
+
+.burger {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 24px;
+   height: 18px;
+   background: none;
+   border: none;
+   cursor: pointer;
+   padding: 0;
+   z-index: 1100;
+   color: inherit;
+   transition: color 0.3s ease;
+
+   &.open {
+      color: variables.$accent-color;
+   }
+
+   span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: currentColor;
+      transition: all 0.3s ease;
+   }
+
+   &.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      color: variables.$accent-color;
+   }
+
+   &.open span:nth-child(2) {
+      opacity: 0;
+   }
+
+   &.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      color: variables.$accent-color;
+   }
+
+   // &:hover {
+   //    color: variables.$accent-color;
+   // }
+}
