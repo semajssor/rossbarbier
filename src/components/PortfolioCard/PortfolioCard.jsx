@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import "./PortfolioCard.scss";
 
 const PortfolioCard = ({ videoSrc, ariaLabel, posterSrc }) => {
-	// <--- Add posterSrc prop
+	
 	const videoRef = useRef(null);
 
 	useEffect(() => {
