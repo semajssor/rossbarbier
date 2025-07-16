@@ -19,14 +19,20 @@
    }
 
    .portfolio-grid {
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
       max-width: 800px;
       margin: 0 auto;
+      align-items: center;
+
 
       @media (min-width: 768px) {
-         grid-template-columns: repeat(2, 1fr);
+         flex-direction: row;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 2rem 3rem;
+      
       }
    }
 }

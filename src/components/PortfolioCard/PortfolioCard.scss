@@ -1,5 +1,4 @@
 @use "../../styles/variables";
-@use "../../styles/mixins";
 
 .portfolio-card {
    display: flex;
@@ -11,24 +10,47 @@
    margin-bottom: 2rem;
    background: variables.$light-bg;
    transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+   width: 100%;
+   max-width: 400px;
+   margin-left: auto;
+   margin-right: auto;
+
+   .video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 500px; 
+      border-radius: 8px;
+      overflow: hidden;
+
+   }
+
+   video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; 
+      object-fit: cover; 
+      border-radius: 8px;
+      cursor: pointer;
+
+   }
 
    @media (min-width: 768px) {
       flex-direction: row;
-   }
+      gap: 1rem;
+      align-items: center;
 
-   .image-wrapper {
-      flex: 1;
-
-      img {
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-         display: block;
+      .video-wrapper {
+         max-width: 100%; 
+         margin-left: 0;
+         margin-right: 0;
       }
    }
-      .dark & {
-         background: variables.$dark-bg;
-         border: 0.5px solid variables.$primary-color;
-         box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
-      }
+
+   .dark & {
+      background: variables.$dark-bg;
+      border: 0.5px solid variables.$primary-color;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+   }
 }

@@ -6,23 +6,14 @@ const Portfolio = () => {
 		<section className="portfolio" id="portfolio">
 			<h2 className="portfolio-title">Portfolio</h2>
 			<div className="portfolio-grid">
-				<PortfolioCard
-					before="/images/before1.jpg"
-					after="/images/after1.jpg"
-					altBefore="Avant coupe 1"
-					altAfter="Après coupe 1"
-				/>
-				<PortfolioCard
-					before="/images/before2.jpg"
-					after="/images/after2.jpg"
-					altBefore="Avant coupe 2"
-					altAfter="Après coupe 2"
-				/>
-				{/* Ajoute d'autres cartes ici */}
-				
+				<PortfolioCard videoSrc="/video/tchass1.MP4" ariaLabel="Video of a haircut style 1" />
+				<PortfolioCard videoSrc="/video/tchass2.MP4" ariaLabel="Video of a haircut style 2" />
+				<PortfolioCard videoSrc="/video/tchass3.MP4" ariaLabel="Video of a haircut style 3" />
+				<PortfolioCard videoSrc="/video/tchass4.MP4" ariaLabel="Video of a haircut style 4" />
+				{/* Add more video cards as needed */}
 			</div>
 		</section>
 	);
-}
+};
 
 export default Portfolio;
