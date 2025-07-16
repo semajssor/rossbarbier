@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
 import Button from "../Button/Button.jsx";
 import "./Navbar.scss";
 import SocialIcons from "../SocialIcons/SocialIcons.jsx";
-
+import ThemeToggle from "../ThemeToggle/ThemeToggle.jsx";
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +11,13 @@ const Navbar = () => {
 	const toggleMenu = () => setIsOpen(!isOpen);
 	const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+	// Detect system theme on mount
+	useEffect(() => {
+		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		setIsDarkMode(prefersDark);
+	}, []);
+
+	// Apply theme to <body>
 	useEffect(() => {
 		document.body.classList.toggle("dark", isDarkMode);
 	}, [isDarkMode]);
@@ -37,12 +43,12 @@ const Navbar = () => {
 						Contact
 					</a>
 				</nav>
+
 				<SocialIcons isDarkMode={isDarkMode} />
+
 				<div className="nav-icons">
 					<Button href={"https://rossthebarber.setmore.com/"}>Réserver</Button>
-					<button onClick={toggleDarkMode} className="icon-btn" aria-label="Toggle dark mode">
-						{isDarkMode ? <MdLightMode /> : <MdDarkMode />}
-					</button>
+					<ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 					<button
 						onClick={toggleMenu}
 						className={`icon-btn burger ${isOpen ? "open" : ""}`}
@@ -55,6 +61,6 @@ const Navbar = () => {
 			</div>
 		</header>
 	);
-}
+};
 
 export default Navbar;
