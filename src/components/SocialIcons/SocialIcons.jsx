@@ -12,7 +12,7 @@ const SocialIcons = () => {
 				<FaFacebook />
 			</a>
 			<a
-				href="https://www.instagram.com/ross_the_barber_05"
+				href="https://www.instagram.com/rossbarbier_5"
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="Instagram">
