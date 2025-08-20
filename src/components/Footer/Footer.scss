@@ -1,3 +1,6 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
 .footer {
    display: flex;
    justify-content: space-around;
