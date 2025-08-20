@@ -7,6 +7,7 @@
    align-items: center;
    flex-wrap: wrap;
    gap: 1rem;
+
    font-size: 0.8rem;
    padding: 1rem;
    background: variables.$light-bg;
@@ -35,18 +36,5 @@
 
    .address {
       font-style: normal;
-   }
-
-   @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-
-      .contact-info {
-         order: 1;
-      }
-
-      .socials {
-         order: 2;
-      }
    }
 }
