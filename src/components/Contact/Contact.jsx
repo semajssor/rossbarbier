@@ -29,12 +29,22 @@ const Contact = () => {
 					</p>
 
 					<div className="contact__map">
-						<iframe
+						{/* <iframe
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2788.7144244309175!2d-73.42305929999999!3d45.6565564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc8e32508134ee7%3A0x12b77f91e4da0098!2s308%20Bd%20de%20la%20Marine%2C%20Varennes%2C%20QC%20J3X%202E6%2C%20Canada!5e0!3m2!1sen!2spl!4v1752615734990!5m2!1sen!2spl"
 							style={{ border: 0 }}
 							loading="lazy"
 							referrerPolicy="no-referrer-when-downgrade"
 							allowFullScreen=""
+						/> */}
+
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d697.1786061077294!2d-73.423703!3d45.6565564!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc8e3a6d0dfb44b%3A0xd93bc8af086d2b54!2sRoss%20Barbier!5e0!3m2!1sen!2spl!4v1755695763827!5m2!1sen!2spl"
+							// width="400"
+							// height="300"
+							style={{border: 0}}
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
 						/>
 					</div>
 				</div>
