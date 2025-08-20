@@ -46,7 +46,7 @@ const Navbar = () => {
 				<SocialIcons isDarkMode={isDarkMode} />
 
 				<div className="nav-icons">
-					<Button href={"https://rossthebarber.setmore.com/"}>Réserver</Button>
+					<Button href={"https://rossbarbier.setmore.com"}>Réserver</Button>
 					<ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 					<BurgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
 				</div>
