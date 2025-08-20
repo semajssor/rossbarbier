@@ -1,21 +1,39 @@
 @use "../../styles/variables";
-@use "../../styles/mixins";
 
 .footer {
-   font-size: 0.5rem;
-   padding: 2rem 1rem 0.5rem 1rem;
-   text-align: center;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 1rem;
+
+   font-size: 0.8rem;
+   padding: 1rem;
    background: variables.$light-bg;
    color: variables.$text-light;
+   text-align: center;
 
-   // Dark mode
    body.dark & {
       background: variables.$dark-bg;
       color: variables.$text-dark;
    }
 
+   .phone a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+
    .footer-text {
-      margin-top: 1rem;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
+      margin-top: 0.5rem;
+   }
+
+   .address {
+      font-style: normal; // keeps it clean
    }
 }
