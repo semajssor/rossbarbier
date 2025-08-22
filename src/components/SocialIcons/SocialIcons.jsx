@@ -18,9 +18,13 @@ const SocialIcons = () => {
 				aria-label="Instagram">
 				<FaInstagram />
 			</a>
-			{/* <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                  <FaTiktok />
-               </a> */}
+			<a
+				href="https://www.tiktok.com/@hugo_4251"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="TikTok">
+				<FaTiktok />
+			</a>
 		</div>
 	);
 };
