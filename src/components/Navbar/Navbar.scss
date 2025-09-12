@@ -19,6 +19,13 @@
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
+
+      @media (max-width: 767px) {
+         flex-direction: column;
+         align-items: stretch;
+         gap: 0.5rem;
+         padding: 0 1rem;
+      }
    }
 
    .logo {
@@ -29,39 +36,45 @@
          height: 60px;
          width: auto;
       }
+
+      @media (max-width: 767px) {
+         margin-left: 0;
+      }
    }
 
    .nav-links {
       position: absolute;
       top: 70px;
+      left: 0;
       right: 0;
       background: variables.$light-bg;
       color: variables.$text-light;
       display: none;
       flex-direction: column;
-      gap: 1.5rem;
-      padding: 2rem;
+      gap: 1rem;
+      padding: 1rem;
       z-index: 1000;
       border: 1px solid variables.$secondary-color;
-      border-radius: 8px;
+      border-radius: 0 0 8px 8px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      max-height: calc(100vh - 70px);
+      overflow-y: auto;
 
       &.open {
          display: flex;
+         align-items: stretch;
       }
 
       a {
          color: inherit;
          text-decoration: none;
          font-weight: 500;
-         transition: color 0.3s ease, border 0.3s ease;
-         border: 1px solid transparent;
          padding: 0.5rem 1rem;
          border-radius: 7px;
+         word-wrap: break-word;
 
          &:hover {
             border: 1px solid variables.$secondary-color;
-            border-radius: 7px;
          }
       }
    }
@@ -73,13 +86,27 @@
 
       a:hover {
          border: 1px solid variables.$primary-color;
-         border-radius: 7px;
+      }
+   }
+
+   .social-icon {
+      @include mixins.flex-center;
+      gap: 0.5rem;
+
+      @media (min-width: 768px) {
+         gap: 1rem;
       }
    }
 
    .nav-icons {
       @include mixins.flex-center;
       gap: 1rem;
+
+      @media (max-width: 767px) {
+         justify-content: space-between;
+         width: 100%;
+         gap: 0.5rem;
+      }
 
       .icon-btn {
          background: none;
@@ -95,6 +122,13 @@
          }
       }
 
+      .burger {
+         display: block;
+
+         @media (min-width: 768px) {
+            display: none;
+         }
+      }
    }
 
    @media (min-width: 768px) {
@@ -115,13 +149,7 @@
       }
 
       .social-icon {
-         gap: 0.5rem;
-      }
-
-      .nav-icons {
-         .burger {
-            display: none;
-         }
+         gap: 1rem;
       }
    }
 }
