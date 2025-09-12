@@ -4,6 +4,7 @@
 .navbar {
    background: variables.$light-bg;
    color: variables.$text-light;
+   padding: 0.75rem 0.5rem; 
    border-bottom: 1px solid variables.$secondary-color;
    transition: background 0.3s ease, color 0.3s ease;
 
