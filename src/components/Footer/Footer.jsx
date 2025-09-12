@@ -1,5 +1,6 @@
 import "./Footer.scss";
 import SocialIcons from "../SocialIcons/SocialIcons";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
 	return (
@@ -7,7 +8,7 @@ const Footer = () => {
 			<div className="contact-info">
 				<p className="phone">
 					<a href="tel:+14383793451" aria-label="Call Ross Barbier Salon">
-						(438) 379-3451
+						<FaPhoneAlt className="phone-icon" /> (438) 379-3451
 					</a>
 				</p>
 				<address className="address" aria-label="Business address">
