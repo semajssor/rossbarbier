@@ -43,7 +43,7 @@ const Navbar = () => {
 					</a>
 				</nav>
 
-				<SocialIcons isDarkMode={isDarkMode} />
+				<SocialIcons className="social-icon" isDarkMode={isDarkMode} />
 
 				<div className="nav-icons">
 					<Button href={"https://rossbarbier.setmore.com"}>Réserver</Button>
