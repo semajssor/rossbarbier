@@ -88,9 +88,9 @@
       @include mixins.flex-center;
       gap: 1rem;
 
-      // @media (max-width: 767px) {
-      //    margin-top: 1rem; // space below logo/nav links on mobile
-      // }
+      @media (max-width: 767px) {
+         gap: 0.5rem;
+      }
 
       .icon-btn {
          background: none;
