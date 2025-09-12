@@ -19,6 +19,12 @@
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
+
+      @media (max-width: 767px) {
+         flex-direction: column;
+         align-items: center;
+         gap: 1rem;
+      }
    }
 
    .logo {
@@ -48,6 +54,7 @@
 
       &.open {
          display: flex;
+         align-items: center;
       }
 
       a {
@@ -81,6 +88,10 @@
       @include mixins.flex-center;
       gap: 1rem;
 
+      @media (max-width: 767px) {
+         margin-top: 1rem; // space below logo/nav links on mobile
+      }
+
       .icon-btn {
          background: none;
          border: none;
@@ -94,7 +105,6 @@
             transform: scale(1.2);
          }
       }
-
    }
 
    @media (min-width: 768px) {
