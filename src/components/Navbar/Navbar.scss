@@ -4,7 +4,7 @@
 .navbar {
    background: variables.$light-bg;
    color: variables.$text-light;
-   padding: 0.5rem 1.5rem;
+   padding: 0.75rem 1rem; // extra breathing space on mobile
    border-bottom: 1px solid variables.$secondary-color;
    transition: background 0.3s ease, color 0.3s ease;
 
@@ -19,6 +19,12 @@
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
+
+      @media (max-width: 767px) {
+         flex-wrap: wrap; // allow items to wrap if needed
+         gap: 1rem; // space between logo, socials, and nav-icons
+         justify-content: center; // keep things centered on small screens
+      }
    }
 
    .logo {
@@ -28,6 +34,10 @@
       img {
          height: 60px;
          width: auto;
+
+         @media (max-width: 767px) {
+            height: 40px; // smaller logo on mobile
+         }
       }
    }
 
@@ -81,6 +91,10 @@
       @include mixins.flex-center;
       gap: 1rem;
 
+      @media (max-width: 767px) {
+         gap: 0.5rem; // smaller gap on mobile
+      }
+
       .icon-btn {
          background: none;
          border: none;
@@ -93,8 +107,11 @@
             color: variables.$accent-icon-color;
             transform: scale(1.2);
          }
-      }
 
+         @media (max-width: 767px) {
+            font-size: 1.4rem; // smaller icons on mobile
+         }
+      }
    }
 
    @media (min-width: 768px) {
