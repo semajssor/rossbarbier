@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./GoogleReviews.scss";
 
 const GoogleReviews = () => {
