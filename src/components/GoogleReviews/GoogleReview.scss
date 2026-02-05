@@ -1,0 +1,21 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.reviews-container {
+   margin: 2rem auto;
+   max-width: 1200px;
+   padding: 0 1rem;
+
+   // This ensures that when the <html> tag has the .dark class, 
+   // the widget inside this container flips colors.
+   :global(html.dark) & {
+      .elfsight-app-e9330e06-27b8-4e4c-9eb4-e52c524bd34c {
+         filter: invert(0.9) hue-rotate(180deg);
+
+         img,
+         [style*="background-image"] {
+            filter: invert(1) hue-rotate(180deg);
+         }
+      }
+   }
+}
