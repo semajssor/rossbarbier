@@ -3,7 +3,7 @@ import Hero from "./components/Hero/Hero.jsx";
 import Portfolio from "./components/Portfolio/Portfolio.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import GoogleReviews from "./components/GoogleReview/GoogleReview.jsx";
+import GoogleReviews from "./components/GoogleReviews/GoogleReviews.jsx";
 
 const App = () => {
 	return (

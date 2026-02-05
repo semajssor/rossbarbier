@@ -1,4 +1,4 @@
-import "./GoogleReview.scss";
+import "./GoogleReviews.scss";
 
 const GoogleReviews = () => {
 	useEffect(() => {
