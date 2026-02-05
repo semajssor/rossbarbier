@@ -1,18 +1,15 @@
 @use "../../styles/variables";
 @use "../../styles/mixins";
 
-.google-reviews-container {
+.google-reviews-section {
+   padding: 40px 20px;
+   display: flex;
+   justify-content: center;
+   transition: background 0.3s ease;
+
    background: variables.$light-bg;
-   padding: 20px;
-   transition: all 0.3s ease;
 
    body.dark & {
       background: variables.$dark-bg;
-
-      span,
-      p,
-      div {
-         color: variables.$text-dark !important;
-      }
    }
 }
