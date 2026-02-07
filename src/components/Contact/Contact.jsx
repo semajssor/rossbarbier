@@ -8,12 +8,12 @@ const Contact = () => {
 					<h2>Heures d'ouverture</h2>
 					<br />
 					<ul>
-						<li>Lundi : 12h - 21h</li>
+						<li>Lundi : Fermé</li>
 						<li>Mardi : 12h - 21h</li>
 						<li>Mercredi : 12h - 21h</li>
 						<li>Jeudi : 12h - 21h</li>
-						<li>Vendredi : 10h - 16h</li>
-						<li>Samedi : 10h - 14h</li>
+						<li>Vendredi : 10h - 18h</li>
+						<li>Samedi : 10h - 18h</li>
 						<li>Dimanche : Fermé</li>
 					</ul>
 				</div>
