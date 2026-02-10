@@ -24,13 +24,26 @@
       height: 450px;
       border-radius: 8px;
       overflow: hidden;
-      /* On met un fond sombre par défaut pour éviter le flash blanc au chargement */
-      background: #000;
-
+      background-color: #000;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      
       body.dark & {
-         background: variables.$dark-bg;
+         background-color: variables.$dark-bg;
       }
       
+      video {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 8px;
+         z-index: 1;
+      }
+
       &::after {
          content: "";
          position: absolute;
@@ -40,31 +53,10 @@
          bottom: 0;
          box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.1);
          pointer-events: none;
+         z-index: 2;
       }
    }
 
-   video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-      display: block;
-      /* Aide à lisser l'apparition de la vidéo sur le poster */
-      transition: opacity 0.3s ease;
-      backface-visibility: hidden;
-         transform: translateZ(0);
-      
-         &[poster] {
-            object-fit: cover;
-         }
-   }
-
-   // On simplifie le responsive : on garde la colonne ici.
-   // C'est Portfolio.scss qui gérera le nombre de colonnes de la grille.
    @media (min-width: 768px) {
       flex-direction: column;
       gap: 0;

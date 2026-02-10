@@ -1,19 +1,17 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import "./PortfolioCard.scss";
 
 const PortfolioCard = ({ videoSrc, ariaLabel, posterSrc }) => {
 	const videoRef = useRef(null);
+	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
 		const videoElement = videoRef.current;
 		if (!videoElement) return;
 
-		// FIX : Si la vidéo est déjà prête (cache), on affiche l'opacité tout de suite
 		if (videoElement.readyState >= 3) {
-			videoElement.style.opacity = 1;
+			setIsLoaded(true);
 		}
-
-		videoElement.load();
 
 		const handleIntersection = (entries) => {
 			entries.forEach((entry) => {
@@ -26,21 +24,21 @@ const PortfolioCard = ({ videoSrc, ariaLabel, posterSrc }) => {
 			});
 		};
 
-		const observer = new IntersectionObserver(handleIntersection, {
-			threshold: 0.1,
-		});
+		const observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
 		observer.observe(videoElement);
 
 		return () => observer.disconnect();
-	}, [videoSrc]); 
+	}, []);
 
 	return (
 		<div className="portfolio-card">
-			<div className="video-wrapper">
+			<div
+				className="video-wrapper"
+				style={{ backgroundImage: `url(${posterSrc})` }} 
+			>
 				<video
 					ref={videoRef}
 					src={videoSrc}
-					poster={posterSrc}
 					muted
 					loop
 					preload="auto"
@@ -48,10 +46,10 @@ const PortfolioCard = ({ videoSrc, ariaLabel, posterSrc }) => {
 					aria-label={ariaLabel}
 					onMouseEnter={(e) => e.currentTarget.play()}
 					onMouseLeave={(e) => e.currentTarget.pause()}
-					onCanPlay={(e) => (e.currentTarget.style.opacity = 1)}
+					onPlaying={() => setIsLoaded(true)}
 					style={{
-						opacity: 0,
-						transition: "opacity 0.5s ease",
+						opacity: isLoaded ? 1 : 0,
+						transition: "opacity 0.6s ease-in-out",
 						objectFit: "cover",
 					}}
 				/>
