@@ -66,7 +66,7 @@
 .review-card {
    scroll-snap-align: center;
    scroll-snap-stop: always;
-   background: variables.$primary-color;
+   background: variables.$light-bg;
    padding: 1.5rem;
    border-radius: 12px;
    display: flex;
@@ -74,13 +74,13 @@
    // min-width: 150px;
    transition: all 0.3s ease;
    border: 1px solid rgba(0, 0, 0, 0.05);
-   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
    flex-shrink: 0;
 
    body.dark & {
-      background: variables.$secondary-color;
+      background: variables.$dark-bg;
       border-color: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
    }
 
    .review-header {
@@ -103,12 +103,14 @@
                color: variables.$text-dark;
             }
          }
+
+         .google-icon {
+            color: #4285F4; // Bleu Google officiel
+            font-size: 1.1rem;
+         }
       }
 
-      .google-icon {
-         color: #4285F4; // Bleu Google officiel
-         font-size: 1.1rem;
-      }
+      
    }
 
    // SECTION ÉTOILES MONOCHROMES
