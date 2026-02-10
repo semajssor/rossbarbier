@@ -16,13 +16,21 @@ const App = () => {
 				const response = await fetch("/api/get-reviews");
 
 				if (!response.ok) {
-					throw new Error("Erreur réseau");
+					throw new Error(`Erreur HTTP: ${response.status}`);
 				}
 
 				const data = await response.json();
 
-				if (data && data.reviews) {
+				// LOG DE DÉBOGAGE : Fais un clic droit sur ton site > Inspecter > Console
+				console.log("Données reçues de l'API :", data);
+
+				// On vérifie les deux formats possibles de Google (Ancien et Nouveau)
+				if (Array.isArray(data)) {
+					setReviews(data);
+				} else if (data.reviews) {
 					setReviews(data.reviews);
+				} else if (data.result && data.result.reviews) {
+					setReviews(data.result.reviews);
 				}
 			} catch (error) {
 				console.error("Erreur lors de la récupération des avis:", error);
