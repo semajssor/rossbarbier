@@ -1,4 +1,5 @@
 @use "../../styles/variables";
+@use "../../styles/mixins";
 
 .portfolio-card {
    display: flex;
@@ -7,21 +8,28 @@
    border-radius: 8px;
    overflow: hidden;
    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-   margin-bottom: 2rem;
    background: variables.$light-bg;
-   transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-   width: 100%;
-   max-width: 400px;
-   margin-left: auto;
-   margin-right: auto;
+   transition: transform 0.3s ease, background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+   width: 100%; 
+   margin: 0;
+
+   &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+   }
 
    .video-wrapper {
       position: relative;
       width: 100%;
-      height: 500px; 
+      height: 450px;
       border-radius: 8px;
       overflow: hidden;
+      /* On met un fond sombre par défaut pour éviter le flash blanc au chargement */
+      background: #000;
 
+      body.dark & {
+         background: variables.$dark-bg;
+      }
    }
 
    video {
@@ -29,28 +37,31 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%; 
-      object-fit: cover; 
+      height: 100%;
+      object-fit: cover;
       border-radius: 8px;
       cursor: pointer;
-
+      display: block;
+      /* Aide à lisser l'apparition de la vidéo sur le poster */
+      transition: opacity 0.3s ease;
    }
 
+   // On simplifie le responsive : on garde la colonne ici.
+   // C'est Portfolio.scss qui gérera le nombre de colonnes de la grille.
    @media (min-width: 768px) {
-      flex-direction: row;
-      gap: 1rem;
-      align-items: center;
-
-      .video-wrapper {
-         max-width: 100%; 
-         margin-left: 0;
-         margin-right: 0;
-      }
+      flex-direction: column;
+      gap: 0;
+      align-items: stretch;
    }
 
-   .dark & {
+   // Mode sombre
+   body.dark & {
       background: variables.$dark-bg;
       border: 0.5px solid variables.$primary-color;
       box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+
+      &:hover {
+         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      }
    }
 }

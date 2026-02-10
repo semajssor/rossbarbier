@@ -18,21 +18,19 @@
       margin-bottom: 3rem;
    }
 
-   .portfolio-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-      align-items: center;
-
-
-      @media (min-width: 768px) {
-         flex-direction: row;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 2rem 3rem;
-      
+      .portfolio-grid {
+         display: grid;
+         grid-template-columns: 1fr; // 1 colonne sur mobile
+         gap: 2rem;
+         max-width: 1200px; // Augmenté pour laisser de la place à 4 cartes
+         margin: 0 auto;
+   
+         @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr); // 2 colonnes sur tablette
+         }
+   
+         @media (min-width: 1024px) {
+            grid-template-columns: repeat(4, 1fr); // 4 colonnes sur ordinateur
+         }
       }
-   }
 }

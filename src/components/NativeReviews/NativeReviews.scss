@@ -1,0 +1,224 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+@use "sass:color";
+
+// Conteneur principal de la section
+.reviews-section {
+   padding: 4rem 2rem;
+   background: variables.$light-bg; 
+   transition: background 0.3s ease;
+
+   body.dark & {
+      background: variables.$dark-bg;
+   }
+
+   h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-family: variables.$font-family;
+      color: variables.$text-light;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      body.dark & {
+         color: variables.$text-dark;
+      }
+   }
+}
+
+.carousel-container {
+   position: relative;
+   display: flex;
+   align-items: center;
+   max-width: 1300px;
+   margin: 0 auto;
+}
+
+// La grille qui devient un ruban horizontal
+.reviews-grid {
+   display: grid;
+   grid-auto-flow: column;
+
+   // Mobile : 1 carte pleine largeur
+   grid-auto-columns: 85%;
+   gap: 1.5rem;
+
+   overflow-x: auto;
+   scroll-snap-type: x mandatory; // Active l'aimantage
+   padding: 1rem 0.5rem;
+   scrollbar-width: none; // Cache la scrollbar (Firefox)
+
+   &::-webkit-scrollbar {
+      display: none; // Cache la scrollbar (Chrome/Safari)
+   }
+
+   // Desktop : 4 cartes par lot
+      @media (min-width: 1024px) {
+         display: flex; // On bascule en flex
+         grid-auto-flow: unset; // On annule la grille
+         gap: 2rem;
+         padding: 2rem 1rem;
+         
+      }
+}
+
+// La carte d'avis individuelle
+.review-card {
+   scroll-snap-align: center;
+   scroll-snap-stop: always;
+   background: variables.$primary-color;
+   padding: 1.5rem;
+   border-radius: 12px;
+   display: flex;
+   flex-direction: column;
+   min-width: 150px;
+   transition: all 0.3s ease;
+   border: 1px solid rgba(0, 0, 0, 0.05);
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+   flex-shrink: 0;
+
+   body.dark & {
+      background: variables.$secondary-color;
+      border-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+   }
+
+   .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+
+      .author-info {
+         display: flex;
+         flex-direction: column;
+
+         strong {
+            font-family: variables.$font-family;
+            font-size: 0.9rem;
+            color: variables.$text-light;
+            text-transform: uppercase;
+
+            body.dark & {
+               color: variables.$text-dark;
+            }
+         }
+      }
+
+      .google-icon {
+         color: #4285F4; // Bleu Google officiel
+         font-size: 1.1rem;
+      }
+   }
+
+   // SECTION ÉTOILES MONOCHROMES
+   .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+
+      .star-filled {
+         // Même couleur que le texte (foncé en light, clair en dark)
+         color: variables.$text-light;
+         opacity: 1;
+
+         body.dark & {
+            color: variables.$text-dark;
+         }
+      }
+
+      .star-empty {
+         // Même couleur mais transparent pour l'effet "vide"
+         color: variables.$text-light;
+         opacity: 0.2;
+
+         body.dark & {
+            color: variables.$text-dark;
+            opacity: 0.15;
+         }
+      }
+   }
+
+   // TEXTE DE L'AVIS
+   .review-text {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: variables.$text-light;
+      margin-bottom: 1rem;
+      flex-grow: 1; 
+      opacity: 0.9;
+      font-style: italic;
+
+      body.dark & {
+         color: variables.$text-dark;
+         opacity: 0.8;
+      }
+   }
+
+   // DATE
+   .review-date {
+      font-size: 0.7rem;
+      font-weight: bold;
+      color: variables.$text-light;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      body.dark & {
+            color: variables.$text-dark;
+            opacity: 0.8;
+      }
+   }
+}
+
+// BOUTONS DE NAVIGATION (Flèches)
+.nav-btn {
+   background: variables.$dark-bg;
+   color: variables.$text-dark;
+   border: none;
+   width: 45px;
+   height: 45px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   z-index: 10;
+   transition: all 0.2s ease;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+   &:hover {
+      transform: scale(1.1);
+      background: color.adjust(variables.$primary-color, $lightness: 10%);
+      color: variables.$text-light;
+
+      body.dark & {
+         background: color.adjust(variables.$secondary-color, $lightness: 10%);
+         color: variables.$text-dark;
+      }
+   }
+
+   &:active {
+      transform: scale(0.95);
+   }
+
+   body.dark & {
+      background-color: variables.$light-bg;
+      color: variables.$text-light;
+   }
+
+   // Cache les flèches sur mobile (on utilise le doigt/swipe)
+   @media (max-width: 768px) {
+      display: none;
+   }
+
+   &.left {
+      position: absolute;
+      left: -22.5px;
+   }
+
+   &.right {
+      position: absolute;
+      right: -22.5px;
+   }
+}

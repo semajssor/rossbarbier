@@ -18,14 +18,12 @@ const PortfolioCard = ({ videoSrc, ariaLabel, posterSrc }) => {
 		const handleIntersection = (entries) => {
 			entries.forEach((entry) => {
 				const isMobile = window.innerWidth < 768;
-
 				if (entry.isIntersecting && isMobile) {
-					videoElement.play().catch((error) => {
-						console.log("Autoplay prevented:", error);
-					});
-				} else {
+					videoElement.play().catch(() => {});
+				} else if (isMobile) {
+					// On met en pause mais on ne reset pas le temps
+					// Cela garde la frame actuelle prête pour le prochain scroll
 					videoElement.pause();
-					videoElement.currentTime = 0;
 				}
 			});
 		};
