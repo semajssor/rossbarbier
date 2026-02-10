@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
 	const apiKey = process.env.VITE_GOOGLE_MAPS_API_KEY;
-	const placeId = "ChIJS7Tf0K-…yEwRVCttCK_IO9k"; // Ton ID
+	const placeId = "ChIJS7Tf0KbjyEwRVCttCK_IO9k"; // Ton ID
 
 	// NOUVELLE URL de Google
 	const url = `https://places.googleapis.com/v1/places/${placeId}?fields=reviews&languageCode=fr`;
