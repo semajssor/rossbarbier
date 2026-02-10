@@ -12,6 +12,7 @@ export default async function handler(req, res) {
 				"Content-Type": "application/json",
 				"X-Goog-Api-Key": apiKey,
 				"X-Goog-FieldMask": "reviews", // On précise qu'on veut uniquement les avis
+				"Referer": "https://www.rossbarbier.ca",
 			},
 		});
 
