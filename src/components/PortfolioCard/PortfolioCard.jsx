@@ -2,18 +2,18 @@ import { useRef, useEffect } from "react";
 import "./PortfolioCard.scss";
 
 const PortfolioCard = ({ videoSrc, ariaLabel, posterSrc }) => {
-	
 	const videoRef = useRef(null);
 
 	useEffect(() => {
 		const videoElement = videoRef.current;
 		if (!videoElement) return;
 
-		const options = {
-			root: null,
-			rootMargin: "0px",
-			threshold: 0.1,
-		};
+		// FIX : Si la vidéo est déjà prête (cache), on affiche l'opacité tout de suite
+		if (videoElement.readyState >= 3) {
+			videoElement.style.opacity = 1;
+		}
+
+		videoElement.load();
 
 		const handleIntersection = (entries) => {
 			entries.forEach((entry) => {
@@ -21,22 +21,18 @@ const PortfolioCard = ({ videoSrc, ariaLabel, posterSrc }) => {
 				if (entry.isIntersecting && isMobile) {
 					videoElement.play().catch(() => {});
 				} else if (isMobile) {
-					// On met en pause mais on ne reset pas le temps
-					// Cela garde la frame actuelle prête pour le prochain scroll
 					videoElement.pause();
 				}
 			});
 		};
 
-		const observer = new IntersectionObserver(handleIntersection, options);
+		const observer = new IntersectionObserver(handleIntersection, {
+			threshold: 0.1,
+		});
 		observer.observe(videoElement);
 
-		return () => {
-			if (videoElement) {
-				observer.unobserve(videoElement);
-			}
-		};
-	}, []);
+		return () => observer.disconnect();
+	}, [videoSrc]); 
 
 	return (
 		<div className="portfolio-card">
@@ -44,16 +40,19 @@ const PortfolioCard = ({ videoSrc, ariaLabel, posterSrc }) => {
 				<video
 					ref={videoRef}
 					src={videoSrc}
-					poster={posterSrc} 
+					poster={posterSrc}
 					muted
 					loop
 					preload="auto"
 					playsInline
 					aria-label={ariaLabel}
 					onMouseEnter={(e) => e.currentTarget.play()}
-					onMouseLeave={(e) => {
-						e.currentTarget.pause();
-						e.currentTarget.currentTime = 0;
+					onMouseLeave={(e) => e.currentTarget.pause()}
+					onCanPlay={(e) => (e.currentTarget.style.opacity = 1)}
+					style={{
+						opacity: 0,
+						transition: "opacity 0.5s ease",
+						objectFit: "cover",
 					}}
 				/>
 			</div>
