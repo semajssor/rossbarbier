@@ -16,12 +16,12 @@ const App = () => {
 				const response = await fetch("/api/get-reviews");
 
 				if (!response.ok) {
-					throw new Error("Erreur réseau lors de la récupération des avis");
+					throw new Error("Erreur réseau");
 				}
 
 				const data = await response.json();
 
-				if (data.reviews) {
+				if (data && data.reviews) {
 					setReviews(data.reviews);
 				}
 			} catch (error) {

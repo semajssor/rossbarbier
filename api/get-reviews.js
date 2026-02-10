@@ -1,4 +1,3 @@
-// api/get-reviews.js
 export default async function handler(req, res) {
 	const apiKey = process.env.VITE_GOOGLE_MAPS_API_KEY;
 	const placeId = "ChIJS7Tf0K-…yEwRVCttCK_IO9k"; // Ton ID
