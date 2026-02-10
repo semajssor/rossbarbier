@@ -1,15 +1,26 @@
+// api/get-reviews.js
 export default async function handler(req, res) {
 	const apiKey = process.env.VITE_GOOGLE_MAPS_API_KEY;
-	const placeId = "ChIJS7Tf0KbjyEwRVCttCK_IO9k";
+	const placeId = "ChIJS7Tf0K-…yEwRVCttCK_IO9k"; // Ton ID
 
-	const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`;
+	// NOUVELLE URL de Google
+	const url = `https://places.googleapis.com/v1/places/${placeId}?fields=reviews&languageCode=fr`;
 
 	try {
-		const response = await fetch(url);
+		const response = await fetch(url, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				"X-Goog-Api-Key": apiKey,
+				"X-Goog-FieldMask": "reviews", // On précise qu'on veut uniquement les avis
+			},
+		});
+
 		const data = await response.json();
-		res.status(200).json(data);
+
+		return res.status(200).json(data);
 	} catch (error) {
-		console.error("Détails de l'erreur:", error);
+		console.error("Erreur API New:", error);
 		return res.status(500).json({ error: "Impossible de récupérer les avis" });
 	}
 }

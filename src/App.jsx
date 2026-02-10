@@ -21,8 +21,8 @@ const App = () => {
 
 				const data = await response.json();
 
-				if (data.result && data.result.reviews) {
-					setReviews(data.result.reviews);
+				if (data.reviews) {
+					setReviews(data.reviews);
 				}
 			} catch (error) {
 				console.error("Erreur lors de la récupération des avis:", error);
