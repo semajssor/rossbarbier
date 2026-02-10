@@ -45,7 +45,7 @@
 
    overflow-x: auto;
    scroll-snap-type: x mandatory; // Active l'aimantage
-   padding: 1rem 0.5rem;
+   padding: 0 0.5rem;
    scrollbar-width: none; // Cache la scrollbar (Firefox)
 
    &::-webkit-scrollbar {
