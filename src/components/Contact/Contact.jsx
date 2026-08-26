@@ -9,11 +9,11 @@ const Contact = () => {
 					<br />
 					<ul>
 						<li>Lundi : Fermé</li>
-						<li>Mardi : 12h - 21h</li>
-						<li>Mercredi : 12h - 21h</li>
-						<li>Jeudi : 12h - 21h</li>
-						<li>Vendredi : 10h - 18h</li>
-						<li>Samedi : 10h - 18h</li>
+						<li>Mardi : 17h - 21h</li>
+						<li>Mercredi : 17h - 21h</li>
+						<li>Jeudi : 17h - 21h</li>
+						<li>Vendredi : 17h - 21h</li>
+						<li>Samedi : 10h - 17h</li>
 						<li>Dimanche : Fermé</li>
 					</ul>
 				</div>
